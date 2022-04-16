@@ -97,7 +97,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
         tanggalBre = new TanggalBre(context);
         ACTIVE_ITEM = tanggalBre.getWeekNumber(); // int 0-6
         //ACTIVE_ITEM = 2; // 2 rabu
-        Log.d(TAG, "TabsNICHawkawkawk: "+tanggalBre.getWeekNumber());
+        //Log.d(TAG, "TabsNICHawkawkawk: "+tanggalBre.getWeekNumber());
         setLayoutParams(new RelativeLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.WRAP_CONTENT
