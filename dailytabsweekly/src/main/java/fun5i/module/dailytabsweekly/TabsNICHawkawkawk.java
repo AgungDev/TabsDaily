@@ -53,7 +53,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
         });
     }
 
-    private static final String TAG = "Main";
+    private static final String TAG = "TabsNICHawkawkawk";
 
     private TanggalBre tanggalBre;
 
@@ -65,7 +65,6 @@ public class TabsNICHawkawkawk extends RelativeLayout {
     private int ACTIVE_ITEM;
     private int MARGIN_ALL_X;
     private int MARGIN_ALL_Y;
-    private int SELECT_Y;
     private int ITEM_SIZE= 120;
 
 
@@ -97,7 +96,8 @@ public class TabsNICHawkawkawk extends RelativeLayout {
         super(context, attrs);
         tanggalBre = new TanggalBre(context);
         ACTIVE_ITEM = tanggalBre.getWeekNumber(); // int 0-6
-        //Log.d(TAG, "TabsNICHawkawkawk: "+tanggalBre.getWeekNumber());
+        //ACTIVE_ITEM = 2; // 2 rabu
+        Log.d(TAG, "TabsNICHawkawkawk: "+tanggalBre.getWeekNumber());
         setLayoutParams(new RelativeLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.WRAP_CONTENT

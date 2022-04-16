@@ -22,7 +22,6 @@ public class TanggalBre {
     private LocaleData localeData;
     private Calendar calendar;
     private SimpleDateFormat simpleDateFormat;
-    private int posisiHariIni;
 
     public String thisDay;
 
@@ -43,7 +42,6 @@ public class TanggalBre {
         SimpleDateFormat formatter= new SimpleDateFormat("dd");
         Date datecr = new Date(System.currentTimeMillis());
         this.thisDay = formatter.format(datecr);
-        this.posisiHariIni = getWeekNumber();
     }
 
     public String getHHMMSS(){
@@ -99,26 +97,26 @@ public class TanggalBre {
     }
 
     public int getWeekNumber(){
-        Date d = new Date();
-        calendar.setTime(d);
-        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-        int week = (calendar.get(Calendar.DAY_OF_WEEK)-1);
+        Calendar a = Calendar.getInstance();
+        int week = (a.get(Calendar.DAY_OF_WEEK));
         return (week == 1)?6:week-2;
+        //return week;
     }
 
 
     public Date[] getWeek(){
         Date[] week = new Date[7];
-        if (getWeekNumber() == 6){
+
+        if (getWeekNumber() == 6){ // 6 is minggu
             //
-            calendar.add(Calendar.DATE, -6);
-            calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//start date
+            Calendar a = Calendar.getInstance(); //mulai baru
+            a.add(Calendar.DATE, -6);
+            a.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//start date
 
             for (int i = 0; i < 7; i++) {
-                week[i] = calendar.getTime();
-                calendar.add(Calendar.DATE, 1);//incremnt
+                week[i] = a.getTime();
+                a.add(Calendar.DATE, 1);//incremnt
             }
-            Log.d(TAG, "getWeek: true");
         }else{
             calendar = Calendar.getInstance();
             calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//start date
