@@ -32,12 +32,7 @@ public class TanggalBre {
             "Sabtu"
     };
 
-    public String currentDays(){
-        SimpleDateFormat formatter= new SimpleDateFormat("dd");
-        Date datecr = new Date(System.currentTimeMillis());
 
-        return formatter.format(datecr);
-    }
 
 
     public TanggalBre(){}
@@ -60,23 +55,48 @@ public class TanggalBre {
         return String.format("%02d:%02d:%02d", mHour, mMinute, mSecond);
     }
 
-    public String getCurrentMonth(){
-        return new SimpleDateFormat("MMM").format(calendar.getTime());
+
+
+    public int getCurrentYear(){
+        Date d = new Date();
+        calendar.setTime(d);
+        int y = calendar.get(Calendar.YEAR);
+        return y;
     }
 
-    public String getCurrentYear(){
-        return new SimpleDateFormat("yyy").format(calendar.getTime());
+    public int getCurrentYear(Date d){
+        calendar.setTime(d);
+        int y = calendar.get(Calendar.YEAR);
+        return y;
     }
 
-    public String getDayFromDate(Date d){
-        simpleDateFormat = new SimpleDateFormat("dd");
-        return simpleDateFormat.format(d);
+    public int getCurrentMonth(){
+        Date d = new Date();
+        calendar.setTime(d);
+        int month = calendar.get(Calendar.MONTH);
+        return month;
     }
 
-    public String getCurrentDayFromDate(){
-        simpleDateFormat = new SimpleDateFormat("dd");
-        return simpleDateFormat.format(new Date());
+    public int getCurrentMonth(Date d){
+        calendar.setTime(d);
+        int month = calendar.get(Calendar.MONTH);
+        return month;
     }
+
+
+    public int getTanggalFromDate(Date d){
+        calendar.setTime(d);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        return day;
+    }
+
+    public int getTanggalFromDate(){
+        Date d = new Date();
+        calendar.setTime(d);
+        int tgl = calendar.get(Calendar.DAY_OF_MONTH);
+        return tgl;
+    }
+
 
     public Date[] getWeek(){
         calendar = Calendar.getInstance();

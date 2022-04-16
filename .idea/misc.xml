@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.9" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/bg_tahun.xml" value="0.1035" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.75" />
         <entry key="dailytabsweekly/src/main/res/drawable/avd_anim_bawah_default.xml" value="0.1465" />
         <entry key="dailytabsweekly/src/main/res/drawable/bgflat.xml" value="0.1275" />
         <entry key="dailytabsweekly/src/main/res/drawable/cc.xml" value="0.1" />

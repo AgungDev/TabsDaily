@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 
+import java.text.DateFormatSymbols;
 import java.util.Date;
 
 import fun5i.module.dailytabsweekly.Items.BaseItem;
@@ -23,7 +24,7 @@ import fun5i.module.dailytabsweekly.function.TanggalBre;
 public class TabsNICHawkawkawk extends RelativeLayout {
 
     public interface OnTabSelection {
-        void Hasil(Date date, String day, String month, String years);
+        void Hasil(Date date, int day, int month, int years);
     }
 
     private OnTabSelection onTabSelection;
@@ -31,7 +32,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
         onTabSelection = interfaces;
     }
 
-   private void setHasil(Date date, String day, String month, String years){
+   private void setHasil(Date date, int day, int month, int years){
         onTabSelection.Hasil(date, day, month, years);
    }
 
@@ -44,7 +45,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
                 animX.start();
                 Date currentDate = tanggalBre.getWeek()[i];
                 setHasil(currentDate,
-                        tanggalBre.getDayFromDate(currentDate),
+                        tanggalBre.getTanggalFromDate(currentDate),
                         tanggalBre.getCurrentMonth(),
                         tanggalBre.getCurrentYear());
             }
@@ -69,6 +70,37 @@ public class TabsNICHawkawkawk extends RelativeLayout {
 
     public String getHari(){
         return TanggalBre.HARI_DALAM_MINGGU[ACTIVE_ITEM+1];
+    }
+
+    public int getTanggal(){
+        return tanggalBre.getTanggalFromDate();
+    }
+
+    public int getTanggal(Date hari){
+        return tanggalBre.getTanggalFromDate(hari);
+    }
+
+    public int getBulan(){
+        return tanggalBre.getCurrentMonth();
+    }
+    public int getBulan(Date buln){
+        return tanggalBre.getCurrentMonth(buln);
+    }
+
+    public String getBulanText(){
+        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth()-1];
+    }
+
+    public String getBulanText(Date buln){
+        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth(buln)-1];
+    }
+
+    public int getTahun(Date tahn){
+        return tanggalBre.getCurrentYear(tahn);
+    }
+
+    public int getTahun(){
+        return tanggalBre.getCurrentYear();
     }
 
     private BaseItem[] items = {
