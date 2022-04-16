@@ -17,14 +17,14 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-    private TextView tv, tgl, bln, thn;
+    private TextView hari, tgl, bln, thn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv = findViewById(R.id.tv);
+        hari = findViewById(R.id.tv);
         tgl = findViewById(R.id.tgl);
         bln = findViewById(R.id.bln);
         thn = findViewById(R.id.tahun);
@@ -40,16 +40,11 @@ public class MainActivity extends AppCompatActivity {
         tabsNICHawkawkawk.onClickItem(new TabsNICHawkawkawk.OnTabSelection() {
             @Override
             public void Hasil(Date date, int day, int month, int years) {
-
-                Log.d(TAG, "date: "+date.toString()); //date: Mon Apr 11 04:49:01 EDT 2022
-                Log.d(TAG, "day: "+day); // 11
-                Log.d(TAG, "month: "+month); //month: Apr
-                Log.d(TAG, "years: "+years); //years: 2022
-
                 // senin ;  if select position is 0 of rows array 0 - 6
                 //setText(TanggalBre.HARI_DALAM_MINGGU[date.getDay()]);
+                Log.d(TAG, "Hasil: "+(date.getDay()-1));
                 setText(
-                        TanggalBre.HARI_DALAM_MINGGU[date.getDay()],
+                        tabsNICHawkawkawk.getHari(date.getDay()),
                         tabsNICHawkawkawk.getTanggal(date),
                         tabsNICHawkawkawk.getBulanText(date),
                         tabsNICHawkawkawk.getTahun(date)
@@ -60,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setText(String value, int t, String b, int th){
-        tv.setText(value);
+        hari.setText(value);
         tgl.setText(String.valueOf(t));
         bln.setText(b);
         thn.setText(String.valueOf(th));

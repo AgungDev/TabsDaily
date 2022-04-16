@@ -3,7 +3,6 @@ package fun5i.module.dailytabsweekly.Items;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -103,7 +102,6 @@ public class BaseItem extends LinearLayout {
     }
 
     public int getTinggi(){
-        Log.d(TAG, "getTinggi: "+FONT_HEIGHT);
         TINGGGI = (MARGIN_Y*4)+BASE_SIZE+FONT_HEIGHT+(BASE_SIZE/MARGIN_X);
         return TINGGGI;
     }

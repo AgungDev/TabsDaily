@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
@@ -50,7 +51,6 @@ public class TabsNICHawkawkawk extends RelativeLayout {
                         tanggalBre.getCurrentYear());
             }
         });
-
     }
 
     private static final String TAG = "Main";
@@ -68,40 +68,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
     private int SELECT_Y;
     private int ITEM_SIZE= 120;
 
-    public String getHari(){
-        return TanggalBre.HARI_DALAM_MINGGU[ACTIVE_ITEM+1];
-    }
 
-    public int getTanggal(){
-        return tanggalBre.getTanggalFromDate();
-    }
-
-    public int getTanggal(Date hari){
-        return tanggalBre.getTanggalFromDate(hari);
-    }
-
-    public int getBulan(){
-        return tanggalBre.getCurrentMonth();
-    }
-    public int getBulan(Date buln){
-        return tanggalBre.getCurrentMonth(buln);
-    }
-
-    public String getBulanText(){
-        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth()-1];
-    }
-
-    public String getBulanText(Date buln){
-        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth(buln)-1];
-    }
-
-    public int getTahun(Date tahn){
-        return tanggalBre.getCurrentYear(tahn);
-    }
-
-    public int getTahun(){
-        return tanggalBre.getCurrentYear();
-    }
 
     private BaseItem[] items = {
             senin,
@@ -129,7 +96,8 @@ public class TabsNICHawkawkawk extends RelativeLayout {
     public TabsNICHawkawkawk(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         tanggalBre = new TanggalBre(context);
-        ACTIVE_ITEM = new Date().getDay()-1; // int 0-6
+        ACTIVE_ITEM = tanggalBre.getWeekNumber(); // int 0-6
+        //Log.d(TAG, "TabsNICHawkawkawk: "+tanggalBre.getWeekNumber());
         setLayoutParams(new RelativeLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.WRAP_CONTENT
@@ -228,7 +196,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
                 (MARGIN_ALL_Y/2)+(MARGIN_ALL_Y/2)+(MARGIN_ALL_Y/2)+(MARGIN_ALL_Y/2)+
                 (MARGIN_ALL_Y/2)+(MARGIN_ALL_Y/2)+(MARGIN_ALL_Y/2)+
                 (ITEM_SIZE/MARGIN_ALL_X)+(MARGIN_ALL_Y/2)+MARGIN_ALL_X+MARGIN_ALL_X+
-                (ITEM_SIZE/MARGIN_ALL_X)+(ITEM_SIZE/MARGIN_ALL_X);
+                (ITEM_SIZE/MARGIN_ALL_X)+(ITEM_SIZE/MARGIN_ALL_X)+MARGIN_ALL_X;
 
 
         selectItem.create();
@@ -238,7 +206,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
         selectParams.addRule(RelativeLayout.CENTER_VERTICAL);
     }
 
-    public void setDispalySize(int width){
+    private void setDispalySize(int width){
         int widthITEM = width/9;
         this.ITEM_SIZE = widthITEM;
         this.MARGIN_ALL_X = (width-(widthITEM*8))/7; // sudah benar
@@ -256,8 +224,6 @@ public class TabsNICHawkawkawk extends RelativeLayout {
             }
         });
     }
-
-
 
     private void marginItems(int left, int top, int right, int bottom){
         for (int i =0; i < count(); i++){
@@ -294,6 +260,46 @@ public class TabsNICHawkawkawk extends RelativeLayout {
 
     private int count(){
         return 7;
+    }
+
+    public String getHari(){
+        return TanggalBre.HARI_DALAM_MINGGU[ACTIVE_ITEM];
+    }
+
+    public String getHari(int posisiWeek){
+        posisiWeek = (posisiWeek-1 == -1)?6:posisiWeek-1;
+        return TanggalBre.HARI_DALAM_MINGGU[posisiWeek];
+    }
+
+    public int getTanggal(){
+        return tanggalBre.getTanggalFromDate();
+    }
+
+    public int getTanggal(Date hari){
+        return tanggalBre.getTanggalFromDate(hari);
+    }
+
+    public int getBulan(){
+        return tanggalBre.getCurrentMonth();
+    }
+    public int getBulan(Date buln){
+        return tanggalBre.getCurrentMonth(buln);
+    }
+
+    public String getBulanText(){
+        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth()-1];
+    }
+
+    public String getBulanText(Date buln){
+        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth(buln)-1];
+    }
+
+    public int getTahun(Date tahn){
+        return tanggalBre.getCurrentYear(tahn);
+    }
+
+    public int getTahun(){
+        return tanggalBre.getCurrentYear();
     }
 
 
