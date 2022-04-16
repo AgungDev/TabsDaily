@@ -61,11 +61,15 @@ public class TabsNICHawkawkawk extends RelativeLayout {
     private LinearLayout.LayoutParams rootParams, HHHParams;
     private BaseItem senin, selasa, rabu, kamis, jumaat, sabut, minggu;
     private SelectItem selectItem;
-    public int ACTIVE_ITEM;
+    private int ACTIVE_ITEM;
     private int MARGIN_ALL_X;
     private int MARGIN_ALL_Y;
     private int SELECT_Y;
     private int ITEM_SIZE= 120;
+
+    public String getHari(){
+        return TanggalBre.HARI_DALAM_MINGGU[ACTIVE_ITEM+1];
+    }
 
     private BaseItem[] items = {
             senin,
