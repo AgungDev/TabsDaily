@@ -287,11 +287,11 @@ public class TabsNICHawkawkawk extends RelativeLayout {
     }
 
     public String getBulanText(){
-        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth()-1];
+        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth()];
     }
 
     public String getBulanText(Date buln){
-        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth(buln)-1];
+        return new DateFormatSymbols().getMonths()[tanggalBre.getCurrentMonth(buln)];
     }
 
     public int getTahun(Date tahn){
