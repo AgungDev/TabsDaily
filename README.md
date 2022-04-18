@@ -47,7 +47,6 @@ tabsNICHawkawkawk.onClickItem(new TabsNICHawkawkawk.OnTabSelection() {
     @Override
     public void Hasil(int kondisi, Date date, int day, int month, int years) {
         // senin ;  if select position is 0 of rows array 0 - 6
-        //setText(TanggalBre.HARI_DALAM_MINGGU[date.getDay()]);
         setText(
                 tabsNICHawkawkawk.getHari(date.getDay()),
                 tabsNICHawkawkawk.getTanggal(date),
