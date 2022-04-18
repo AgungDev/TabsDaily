@@ -1,5 +1,6 @@
 # TabsDaily
-![alt hayuuk](https://i.ibb.co/XfBZkQh/ezgif-com-gif-maker.gif)
+![alt hayuuk](https://i.ibb.co/ggDZmcZ/ezgif-com-gif-maker.gif)
+
 
 ### Gridle Setup
 ```java
@@ -17,7 +18,8 @@ dependencyResolutionManagement {
     }
 }
 dependencies {
-      implementation 'com.github.AgungDev:TabsDaily:1.0.1'
+      // check version releases in https://jitpack.io/#AgungDev/TabsDaily 
+      implementation 'com.github.AgungDev:TabsDaily:$VERSION_RELEASES'
 }
 ```
 
