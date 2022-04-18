@@ -25,16 +25,29 @@ import fun5i.module.dailytabsweekly.function.TanggalBre;
 public class TabsNICHawkawkawk extends RelativeLayout {
 
     public interface OnTabSelection {
-        void Hasil(Date date, int day, int month, int years);
+        void Hasil(int kondisi, Date date, int day, int month, int years);
     }
+
+    public static final int KONDISI_DESABLE = 1;
+    public static final int KONDISI_ACTIVE = 2;
+    public static final int KONDISI_PANDING = 3;
+    private static final String[] KONDISI_TEXT = {
+           "Disable",
+            "Active",
+            "Pending"
+    };
+    public String getKondisiToText(int kondisi){
+        return KONDISI_TEXT[kondisi-1];
+    }
+
 
     private OnTabSelection onTabSelection;
     public void onClickItem(OnTabSelection interfaces){
         onTabSelection = interfaces;
     }
 
-   private void setHasil(Date date, int day, int month, int years){
-        onTabSelection.Hasil(date, day, month, years);
+   private void setHasil(int kondisi, Date date, int day, int month, int years){
+        onTabSelection.Hasil(kondisi ,date, day, month, years);
    }
 
     private void itemsClick(int i){
@@ -45,7 +58,9 @@ public class TabsNICHawkawkawk extends RelativeLayout {
                 ObjectAnimator animX = ObjectAnimator.ofFloat(selectItem, "x", items[i].getX());
                 animX.start();
                 Date currentDate = tanggalBre.getWeek()[i];
-                setHasil(currentDate,
+                setHasil(
+                        getKondisi(i),
+                        currentDate,
                         tanggalBre.getTanggalFromDate(currentDate),
                         tanggalBre.getCurrentMonth(),
                         tanggalBre.getCurrentYear());
@@ -87,6 +102,20 @@ public class TabsNICHawkawkawk extends RelativeLayout {
             "Sabtu",
             "Minggu",
     };
+
+    public int getKondisi(int i){
+        int kon=-1;
+
+        if (i < ACTIVE_ITEM){
+            kon = KONDISI_DESABLE;
+        }else if(i == ACTIVE_ITEM){
+            kon = KONDISI_ACTIVE;
+        }else if(i > ACTIVE_ITEM){
+            kon = KONDISI_PANDING;
+        }
+
+        return kon;
+    }
 
     public TabsNICHawkawkawk(Context context) {
         super(context);
