@@ -26,13 +26,13 @@ public class TanggalBre {
     public String thisDay;
 
     public static final String[] HARI_DALAM_MINGGU = {
+            "Minggu",
             "Senin",
             "Selasa",
             "Rabu",
             "Kamis",
             "Jumaat",
             "Sabtu",
-            "Minggu"
     };
 
     public TanggalBre(Context c){
@@ -99,7 +99,7 @@ public class TanggalBre {
     public int getWeekNumber(){
         Calendar a = Calendar.getInstance();
         int week = (a.get(Calendar.DAY_OF_WEEK));
-        return (week == 1)?6:week-2;
+        return week-1; // start from ziro
         //return week;
     }
 
@@ -107,24 +107,12 @@ public class TanggalBre {
     public Date[] getWeek(){
         Date[] week = new Date[7];
 
-        if (getWeekNumber() == 6){ // 6 is minggu
-            //
-            Calendar a = Calendar.getInstance(); //mulai baru
-            a.add(Calendar.DATE, -6);
-            a.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//start date
+        calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//start date
 
-            for (int i = 0; i < 7; i++) {
-                week[i] = a.getTime();
-                a.add(Calendar.DATE, 1);//incremnt
-            }
-        }else{
-            calendar = Calendar.getInstance();
-            calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);//start date
-
-            for (int i = 0; i < 7; i++) {
-                week[i] = calendar.getTime();
-                calendar.add(Calendar.DATE, 1);//incremnt
-            }
+        for (int i = 0; i < 7; i++) {
+            week[i] = calendar.getTime();
+            calendar.add(Calendar.DATE, 1);//incremnt
         }
 
 

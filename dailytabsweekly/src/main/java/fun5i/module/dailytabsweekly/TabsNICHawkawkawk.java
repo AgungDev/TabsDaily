@@ -75,7 +75,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
     private LinearLayout rootLay;
     private RelativeLayout.LayoutParams selectParams;
     private LinearLayout.LayoutParams rootParams, HHHParams;
-    private BaseItem senin, selasa, rabu, kamis, jumaat, sabut, minggu;
+    private BaseItem senin, selasa, rabu, kamis, jumat, sabut, minggu;
     private SelectItem selectItem;
     private int ACTIVE_ITEM;
     private int MARGIN_ALL_X;
@@ -89,18 +89,18 @@ public class TabsNICHawkawkawk extends RelativeLayout {
             selasa,
             rabu,
             kamis,
-            jumaat,
+            jumat,
             sabut,
             minggu
     };
     private String[] ITEMS_TITLE = {
+            "Minggu",
             "Senin",
             "Selasa",
             "Rabu",
             "Kamis",
-            "Jumaat",
-            "Sabtu",
-            "Minggu",
+            "Jumat",
+            "Sabtu"
     };
 
     public int getKondisi(int i){
@@ -296,7 +296,6 @@ public class TabsNICHawkawkawk extends RelativeLayout {
     }
 
     public String getHari(int posisiWeek){
-        posisiWeek = (posisiWeek-1 == -1)?6:posisiWeek-1;
         return TanggalBre.HARI_DALAM_MINGGU[posisiWeek];
     }
 
