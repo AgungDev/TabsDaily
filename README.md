@@ -1,5 +1,6 @@
 # TabsDaily
-![alt hayuuk](https://i.ibb.co/XfBZkQh/ezgif-com-gif-maker.gif)
+![alt hayuuk](https://i.ibb.co/ggDZmcZ/ezgif-com-gif-maker.gif)
+
 
 ### Gridle Setup
 ```java
@@ -17,7 +18,8 @@ dependencyResolutionManagement {
     }
 }
 dependencies {
-      implementation 'com.github.AgungDev:TabsDaily:1.0.1'
+      // check version releases in https://jitpack.io/#AgungDev/TabsDaily 
+      implementation 'com.github.AgungDev:TabsDaily:$VERSION_RELEASES'
 }
 ```
 
@@ -37,21 +39,19 @@ setText(
         tabsNICHawkawkawk.getHari(),
         tabsNICHawkawkawk.getTanggal(),
         tabsNICHawkawkawk.getBulanText(),
-        tabsNICHawkawkawk.getTahun()
+        tabsNICHawkawkawk.getKondisiToText(tabsNICHawkawkawk.KONDISI_ACTIVE)
 );
 //tabsNICHawkawkawk.setFontSize(10); // bugs
 tabsNICHawkawkawk.aturLatar(Color.parseColor("#ff8C8C8C"));
 tabsNICHawkawkawk.onClickItem(new TabsNICHawkawkawk.OnTabSelection() {
     @Override
-    public void Hasil(Date date, int day, int month, int years) {
+    public void Hasil(int kondisi, Date date, int day, int month, int years) {
         // senin ;  if select position is 0 of rows array 0 - 6
-        //setText(TanggalBre.HARI_DALAM_MINGGU[date.getDay()]);
-        Log.d(TAG, "Hasil: "+(date.getDay()-1));
         setText(
                 tabsNICHawkawkawk.getHari(date.getDay()),
                 tabsNICHawkawkawk.getTanggal(date),
                 tabsNICHawkawkawk.getBulanText(date),
-                tabsNICHawkawkawk.getTahun(date)
+                tabsNICHawkawkawk.getKondisiToText(kondisi)
 
         );
     }
