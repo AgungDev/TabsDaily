@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 tabsNICHawkawkawk.getKondisiToText(tabsNICHawkawkawk.KONDISI_ACTIVE)
         );
         //tabsNICHawkawkawk.setFontSize(10); // bugs
-        tabsNICHawkawkawk.aturLatar(Color.parseColor("#ff8C8C8C"));
+        //tabsNICHawkawkawk.aturLatar(Color.parseColor("#ff8C8C8C"));
         tabsNICHawkawkawk.onClickItem(new TabsNICHawkawkawk.OnTabSelection() {
             @Override
             public void Hasil(int kondisi, Date date, int day, int month, int years) {
