@@ -1,7 +1,7 @@
 # TabsDaily
 ![alt hayuuk](https://i.ibb.co/ggDZmcZ/ezgif-com-gif-maker.gif)
 
-### New Update 1.0.4
+### New Update 1.0.5
 ```java
 int[] icons = new int[] {R.drawable.yesterday_icn, R.drawable.today_icn, R.drawable.tomorrow_icn};
 String[] fontColors = new String[] {"#FF018786", "#F40303", "#FF03DAC5"};
