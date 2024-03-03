@@ -126,8 +126,8 @@ public class TabsNICHawkawkawk extends RelativeLayout {
     }
 
     public void customTabsLayout(Context context, int[] icons, int fontSize, String[] fontColors) {
-        //removeView(rootLay);
-        removeAllViews();
+        removeView(rootLay); // hapus body
+        removeView(selectItem); // hapus pointer
 
         ACTIVE_ITEM = tanggalBre.getWeekNumber(); // int 0-6
         setLayoutParams(new RelativeLayout.LayoutParams(
