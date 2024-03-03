@@ -4,17 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.widget.Button;
 import android.widget.TextView;
 
-import java.text.DateFormatSymbols;
 import java.util.Date;
 
 import fun5i.module.dailytabsweekly.TabsNICHawkawkawk;
-import fun5i.module.dailytabsweekly.TabsWeek2;
-import fun5i.module.dailytabsweekly.function.TanggalBre;
 
 public class MainActivity extends AppCompatActivity {
 
