@@ -31,7 +31,7 @@ public class TanggalBre {
             "Selasa",
             "Rabu",
             "Kamis",
-            "Jumaat",
+            "Jumat",
             "Sabtu",
     };
 

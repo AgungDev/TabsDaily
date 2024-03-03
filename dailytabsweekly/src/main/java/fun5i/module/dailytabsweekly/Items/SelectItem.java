@@ -59,8 +59,6 @@ public class SelectItem extends LinearLayout {
 
         addView(belakang);
 
-
-
         int bawahX = SIZE_X/2;
         int bawahY = 10;
         bawahParams = paramss(bawahX, bawahY);
