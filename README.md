@@ -7,6 +7,7 @@ int[] icons = new int[] {R.drawable.yesterday_icn, R.drawable.today_icn, R.drawa
 String[] fontColors = new String[] {"#FF018786", "#F40303", "#FF03DAC5"};
 tabs.aturLatar(Color.argb(0, 0, 0, 0)); // transparant
 tabs.customTabsLayout(this, RelativeLayout.ALIGN_PARENT_BOTTOM, icons, 10, fontColor);
+int kondisi = tabs.getKondisi(); // 1 yesterday, 2 today, 3 tomorrow
 ```
 
 ### Gridle Setup
