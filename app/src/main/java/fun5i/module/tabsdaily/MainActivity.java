@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.Date;
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         int[] icons = new int[] {R.drawable.yesterday_icn, R.drawable.today_icn, R.drawable.tomorrow_icn};
         String[] fontColors = new String[] {"#FF018786", "#F40303", "#FF03DAC5"};
         tabs.aturLatar(Color.argb(0, 0, 0, 0)); // transparant
-        tabs.customTabsLayout(this , icons, 10, fontColors);
+        tabs.customTabsLayout(this , RelativeLayout.CENTER_HORIZONTAL, icons, 10, fontColors);
+
     }
 
     private void versi103(){

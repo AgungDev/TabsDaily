@@ -125,7 +125,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
         initsial(context);
     }
 
-    public void customTabsLayout(Context context, int[] icons, int fontSize, String[] fontColors) {
+    public void customTabsLayout(Context context,int rules , int[] icons, int fontSize, String[] fontColors) {
         removeView(rootLay); // hapus body
         removeView(selectItem); // hapus pointer
 
@@ -142,6 +142,14 @@ public class TabsNICHawkawkawk extends RelativeLayout {
                 LayoutParams.WRAP_CONTENT
         );
         rootLay.setLayoutParams(rootParams);
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.addRule(rules);
+        setLayoutParams(params);
+
         init();
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         int width = displayMetrics.widthPixels;
