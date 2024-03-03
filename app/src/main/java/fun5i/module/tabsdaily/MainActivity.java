@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -29,15 +31,18 @@ public class MainActivity extends AppCompatActivity {
         tabs = findViewById(R.id.tabs);
 
         versi103();
-        versi104();
+        versi200();
     }
 
-    private void versi104(){
+    private void versi200(){
         int[] icons = new int[] {R.drawable.yesterday_icn, R.drawable.today_icn, R.drawable.tomorrow_icn};
         String[] fontColors = new String[] {"#FF018786", "#F40303", "#FF03DAC5"};
         tabs.aturLatar(Color.argb(0, 0, 0, 0)); // transparant
         tabs.customTabsLayout(this , RelativeLayout.CENTER_HORIZONTAL, icons, 10, fontColors);
-
+        thn.setOnClickListener((View view) -> {
+            String kondisi = tabs.getKondisiToText(tabs.getKondisi());
+            Toast.makeText(MainActivity.this, kondisi, Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void versi103(){
@@ -45,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 tabs.getHari(),
                 tabs.getTanggal(),
                 tabs.getBulanText(),
-                tabs.getKondisiToText(tabs.KONDISI_ACTIVE)
+                tabs.getKondisiToText(tabs.KONDISI_TODAY)
         );
         tabs.aturLatar(Color.parseColor("#ff8C8C8C"));
         tabs.onClickItem(new TabsNICHawkawkawk.OnTabSelection() {

@@ -25,9 +25,9 @@ public class TabsNICHawkawkawk extends RelativeLayout {
         void Hasil(int kondisi, Date date, int day, int month, int years);
     }
 
-    public static final int KONDISI_DESABLE = 1;
-    public static final int KONDISI_ACTIVE = 2;
-    public static final int KONDISI_PANDING = 3;
+    public static final int KONDISI_YESTERDAY = 1;
+    public static final int KONDISI_TODAY = 2;
+    public static final int KONDISI_TOMORROW = 3;
     private static final String[] KONDISI_TEXT = {
             "Yesterday",
             "Today",
@@ -77,6 +77,7 @@ public class TabsNICHawkawkawk extends RelativeLayout {
     private BaseItem senin, selasa, rabu, kamis, jumat, sabut, minggu;
     private SelectItem selectItem;
     private int ACTIVE_ITEM;
+    private int ACTIVE_KONDISI = KONDISI_TODAY;
     private int MARGIN_ALL_X;
     private int MARGIN_ALL_Y;
     private int ITEM_SIZE = 120;
@@ -105,14 +106,21 @@ public class TabsNICHawkawkawk extends RelativeLayout {
         int kon = -1;
 
         if (i < ACTIVE_ITEM) {
-            kon = KONDISI_DESABLE;
+            ACTIVE_KONDISI = KONDISI_YESTERDAY;
+            kon = KONDISI_YESTERDAY;
         } else if (i == ACTIVE_ITEM) {
-            kon = KONDISI_ACTIVE;
+            ACTIVE_KONDISI = KONDISI_TODAY;
+            kon = KONDISI_TODAY;
         } else {
-            kon = KONDISI_PANDING;
+            ACTIVE_KONDISI = KONDISI_TOMORROW;
+            kon = KONDISI_TOMORROW;
         }
 
         return kon;
+    }
+
+    public int getKondisi(){
+        return this.ACTIVE_KONDISI;
     }
 
     public TabsNICHawkawkawk(Context context) {
